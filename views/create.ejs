@@ -1,0 +1,99 @@
+<%- include("partials/header.ejs") %>
+
+<% if ( locals.book ) { %>
+
+    <form action="/update/<%= book.id %>" method="POST" class="form-container" id="edit-form">
+        <label for="booktitle">Enter Book Title:
+            <input type="text" name="booktitle" id="booktitle" autocomplete="off" value="<%= book.book_title %>"></label>
+        <label for="isbn">Enter ISB Number of Book:
+            <input type="text" name="isbn" id="isbn" autocomplete="off" value="<%= book.isbn %>"></label>
+
+        <p>Enter your rating:</p>
+
+        <div class="radio">
+
+            <label for="zero"><input type="radio" name="rating" id="zero" value="0"> 0</label>
+            <label for="one"><input type="radio" name="rating" id="one" value="1"> 1</label>
+            <label for="two"><input type="radio" name="rating" id="two" value="2"> 2</label>
+            <label for="three"><input type="radio" name="rating" id="three" value="3"> 3</label>
+            <label for="four"><input type="radio" name="rating" id="four" value="4"> 4</label>
+            <label for="five"><input type="radio" name="rating" id="five" value="5"> 5</label>
+            <label for="six"><input type="radio" name="rating" id="six" value="6"> 6</label>
+            <label for="seven"><input type="radio" name="rating" id="seven" value="7"> 7</label>
+            <label for="eight"><input type="radio" name="rating" id="eight" value="8"> 8</label>
+            <label for="nine"><input type="radio" name="rating" id="nine" value="9"> 9</label>
+            <label for="ten"><input type="radio" name="rating" id="ten" value="10"> 10</label>
+
+        </div>
+
+        <label for="date">Enter Date when finished reading:
+            <input type="date" name="date" id="date" value="<%= book.date_read %>"></label>
+
+        <label for="bookdescription">Description:
+             <textarea name="description" id="bookdescription" autocomplete="off"><%= book.description %></textarea>
+        </label>
+
+        <label for="mynotes">My Notes:
+            <textarea name="notes" id="mynotes" autocomplete="off"><%= book.notes %></textarea>
+        </label>
+
+        <input type="submit" value="<%= message %>" class="btn">
+
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+         const radios = document.querySelectorAll('input[name = "rating"]');
+         radios.forEach((radio)=>{
+            if( radio.value == "<%= book.rating %>"){
+                radio.click();
+            }
+         });
+    }, false);
+      </script>
+
+<% } else { %>    
+
+    <form action="/publish-note" method="POST" class="form-container" id="new-form">
+        <label for="booktitle">Enter Book Title:
+            <input type="text" name="booktitle" id="booktitle" autocomplete="off"></label>
+        <label for="isbn">Enter ISB Number of Book:
+            <input type="text" name="isbn" id="isbn" autocomplete="off"></label>
+
+        <p>Enter your rating:</p>
+
+        <div class="radio">
+
+            <label for="zero"><input type="radio" name="rating" id="zero" value="0"> 0</label>
+            <label for="one"><input type="radio" name="rating" id="one" value="1"> 1</label>
+            <label for="two"><input type="radio" name="rating" id="two" value="2"> 2</label>
+            <label for="three"><input type="radio" name="rating" id="three" value="3"> 3</label>
+            <label for="four"><input type="radio" name="rating" id="four" value="4"> 4</label>
+            <label for="five"><input type="radio" name="rating" id="five" value="5"> 5</label>
+            <label for="six"><input type="radio" name="rating" id="six" value="6"> 6</label>
+            <label for="seven"><input type="radio" name="rating" id="seven" value="7"> 7</label>
+            <label for="eight"><input type="radio" name="rating" id="eight" value="8"> 8</label>
+            <label for="nine"><input type="radio" name="rating" id="nine" value="9"> 9</label>
+            <label for="ten"><input type="radio" name="rating" id="ten" value="10"> 10</label>
+
+        </div>
+
+        <label for="date">Enter Date when finished reading:
+            <input type="date" name="date" id="date"></label>
+
+        <label for="bookdescription">Description:
+             <textarea name="description" id="bookdescription" autocomplete="off"></textarea>
+        </label>
+
+        <label for="mynotes">My Notes:
+            <textarea name="notes" id="mynotes" autocomplete="off"></textarea>
+        </label>
+
+        <input type="submit" value="Publish" class="btn">
+
+    </form>
+  <% } %>
+
+
+
+    <%- include("partials/footer.ejs") %>

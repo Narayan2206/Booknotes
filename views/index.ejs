@@ -1,0 +1,70 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="description">
+        These are the books I have read and the notes I have created for that particular book. I can create notes for a new book by clicking on the "Create New" button below. I can also edit any existing notes for a book by visiting its respective page and can also delete my notes if I don't like them.
+    </div>
+
+    <div class="actionbtns">
+        <div class="new normalbtn">
+        <a href="/create-notes"><img width="25" height="25" src="https://img.icons8.com/ios/50/plus--v1.png" alt="plus--v1"/><span>Create New</span></a>
+      </div>
+      <div class="sortoptions">
+        <form action="/sort-by" method="post" id="sortForm">
+            <label for="sortby">Sort By:</label>
+            <select name="sortby" id="sortby">
+                <option value="">--Sort By--</option>
+                <option value="name">Name</option>
+                <option value="rating">Rating</option>
+                <option value="date">Date Read</option>
+            </form>
+         </select>
+      </div>
+    </div>
+    <hr>
+
+    <section class="all-books">
+        <% if(books.length !== 0) { %>
+        <% for(let book of books) { %>
+            <div class="book-container">
+                <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn%>-M.jpg" alt="book-cover" width="140px">
+                <h2>
+                   <a href="/notes/<%= book.id %>"><%= book.book_title%></a>
+                </h2>
+                <% const date= book.date_read %>
+                <% const d = date.substring(8) %>
+                <% const m = date.substring(5,7) %>
+                <% const y = date.substring(0,4) %>
+                <small>Date Read: <%= d %>-<%= m %>-<%= y %>.&nbsp; My Rating: <%= book.rating%>/10</small>
+                <p class="balance"><%= book.description %></p>
+            </div>
+
+            <% } %>
+     <% } else {  %>
+        <p>Currently no notes. Click on the "Create New" button to add a new note.</p>
+     <% } %>
+     </section>
+           
+
+    <script>
+         const sortDropDown = document.querySelector("#sortby");
+         sortDropDown.addEventListener("change", ()=>{
+            document.querySelector("#sortForm").submit();
+         });
+
+        //  const apiurl = "https://www.googleapis.com/books/v1/volumes?q=isbn:";
+        //  const isbn ;
+        //  fetch(`${apiurl}${isbn}`).then( response =>{
+        //     if(!response.ok){
+        //         throw new Error("Network response was not OK.");
+        //     }
+        //     return response.json();
+        //  }).then( data =>{
+        //     console.log(data["items"][0]["volumeInfo"]["imageLinks"]["smallThumbnail"]);
+        //  }).catch(error =>{
+        //     console.log("Error: ",error);
+        //  });
+    </script>
+
+
+
+    <%- include("partials/footer.ejs") %>

@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #18181b;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.1rem;
+}
+
+.container {
+    width: 65%;
+    max-width: 1280px;
+    margin: auto;
+    padding: 2%;
+    min-height: 100vh;
+    position: relative;
+}
+
+div.actionbtns {
+    margin-bottom: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.actionbtns .edit,
+.actionbtns .new {
+    border: 2px solid white;
+}
+
+.actionbtns .normalbtn {
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.actionbtns .delete {
+    border: 2px solid red;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.modal {
+    padding: 1rem;
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    border-radius: 8px;
+    outline: none;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 30%;
+}
+
+
+.modal a {
+    background-color: red;
+    color: white;
+    padding: 6px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+}
+
+.modal button {
+    background-color: #18181b;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+
+}
+
+.modal::backdrop{
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modalBtns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4%;
+}
+
+.actionbtns img {
+    filter: invert(100%);
+}
+
+.actionbtns a {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+}
+
+.actionbtns span {
+    margin-left: 5px;
+}
+
+.sortoptions label{
+    margin-right: 5px;
+}
+
+.sortoptions select{
+    font-family: inherit;
+    color: white;
+    background-color: black;
+    outline: none;
+    padding: 4px;
+    border: 2px solid white;
+    border-radius: 8px;
+}
+
+.description {
+    padding: 5% 0;
+}
+
+
+.all-books {
+    margin-top: 10%;
+    min-height: 50vh;
+}
+
+.book-container {
+    margin-bottom: 10%;
+    min-height: 230px;
+}
+
+.book-container a {
+    text-decoration: none;
+    color: white;
+}
+
+.book-container a:hover {
+    text-decoration: underline;
+}
+
+.book-container img {
+    float: left;
+    margin-right: 20px;
+}
+
+.book-container small {
+    display: block;
+    margin: 2% 0;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    margin: 5% 0;
+    gap: 10px;
+    /* border: 2px solid green; */
+}
+
+input[type="text"] {
+    font-size: 1.1rem;
+    padding: 0 4px;
+    width: 40%;
+}
+
+input[type="text"],
+input[type="date"] {
+    margin-left: 5px;
+}
+
+.radio {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.form-container textarea {
+    width: 100%;
+    font-family: inherit;
+    font-size: 1.1rem;
+    padding: 4px;
+    margin-top: 5px;
+
+}
+
+#bookdescription {
+    height: 250px;
+}
+
+#mynotes {
+    height: 500px;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+input,
+textarea {
+    background-color: rgb(50, 50, 50);
+    color: white;
+    border-radius: 5px;
+}
+
+.btn {
+    padding: 8px 4px;
+    font-size: 1.1rem;
+    border: none;
+    background-color: #04551a;
+    color: white;
+    border-radius: 5px;
+    margin-top: 2%;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #077a26;
+}
+
+.notes-section {
+    margin-top: 10%;
+}
+
+.notes-container {
+    margin-bottom: 15%;
+}
+
+.notes-container p {
+    margin-top: 5%;
+}
+
+footer{
+    margin-top: 3%;
+}
+
+footer p {
+    text-align: center;
+}
+
+/* utility classes */
+
+.text-underline {
+    text-decoration: underline;
+}
+
+
+.balance{
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* Media Query */
+
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 1rem;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .modal {
+        width: 80%;
+    }
+}
