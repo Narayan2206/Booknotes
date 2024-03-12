@@ -16,6 +16,19 @@ Before you begin, ensure you have met the following requirements:
 
 3. **Configure Access:** Configure user permissions and access control for your database to ensure security.
 
+4. **Create Table:** Create a table named `books_read` inside the `books` database, using the following SQL command.
+```
+CREATE TABLE books_read(
+    id PRIMARY_KEY,
+    book_title TEXT,
+    isbn TEXT,
+    rating INT,
+    date_read VARCHAR(10),
+    description TEXT,
+    notes TEXT
+)
+```
+
 ## Setting Environment Variables
 
 1. Open the file `.env.example`.
